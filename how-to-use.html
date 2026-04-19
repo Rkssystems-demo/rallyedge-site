@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use RallyEdge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep: #1b5230;
+      --green-primary: #2a7a4b;
+      --green-light: #e8f5ee;
+      --navy: #1b2d45;
+      --gold: #b8860b;
+      --gold-light: #fdf6e3;
+      --text-body: #4a5e72;
+      --text-light: #7a8fa6;
+      --border: #e4eaf0;
+      --white: #ffffff;
+      --bg: #f8faf9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background-color: var(--green-deep);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-wordmark {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .header-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--gold);
+    }
+
+    .header-title {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: var(--green-deep);
+      padding: 72px 24px 80px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 56px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-nav a {
+      display: inline-block;
+      padding: 9px 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-nav a:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.4);
+      color: white;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── START HERE ── */
+    .start-here {
+      background: var(--white);
+      border: 2px solid var(--green-primary);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .start-here::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--green-primary), var(--gold));
+    }
+
+    .start-here-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-primary);
+      margin-bottom: 10px;
+    }
+
+    .start-here h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .start-here-subtitle {
+      font-size: 14px;
+      color: var(--text-body);
+      margin-bottom: 32px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .start-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .start-step {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .start-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--green-primary);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .start-step-emoji {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .start-step h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .start-step p {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      .start-here {
+        padding: 28px 20px;
+      }
+      .start-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-top: 72px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background-color: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .section-icon.ai {
+      background-color: var(--gold-light);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green-primary);
+      margin-bottom: 4px;
+    }
+
+    .section-label.ai {
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* ── STEP CARDS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 20px;
+      align-items: start;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .step:hover {
+      box-shadow: 0 4px 20px rgba(27, 82, 48, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--green-primary);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-number.gold {
+      background-color: var(--gold);
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .step-content p + p {
+      margin-top: 10px;
+    }
+
+    /* ── TIP BOX ── */
+    .tip {
+      background-color: var(--green-light);
+      border-left: 3px solid var(--green-primary);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--green-deep);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .tip strong {
+      font-weight: 600;
+    }
+
+    .tip.gold-tip {
+      background-color: var(--gold-light);
+      border-left-color: var(--gold);
+      color: #6b4c00;
+    }
+
+    /* ── INFO GRID ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .info-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .info-card-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* ── TIER TABLE ── */
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .tier-table th {
+      padding: 14px 16px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background-color: var(--navy);
+      color: white;
+    }
+
+    .tier-table th:first-child {
+      text-align: left;
+    }
+
+    .tier-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-body);
+      text-align: center;
+    }
+
+    .tier-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .tier-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tier-table tr:nth-child(even) td {
+      background-color: #fafcfb;
+    }
+
+    .check {
+      color: var(--green-primary);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .dash {
+      color: var(--text-light);
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 72px 0 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--green-deep);
+      padding: 40px 24px;
+      text-align: center;
+      margin-top: 80px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .footer-wordmark {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 56px 20px 64px;
+      }
+
+      .step {
+        padding: 22px 20px;
+        grid-template-columns: 30px 1fr;
+        gap: 14px;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .section-header {
+        gap: 12px;
+      }
+
+      .tier-table {
+        font-size: 12px;
+      }
+
+      .tier-table th,
+      .tier-table td {
+        padding: 10px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="header-brand">
+        <span class="header-wordmark">RallyEdge</span>
+        <span class="header-dot"></span>
+      </a>
+      <span class="header-title">How to Use</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Getting Started</p>
+    <h1>Step on the court ready — every time.</h1>
+    <p>Everything you need to know to get the most out of RallyEdge. Quick to read, easy to follow.</p>
+    <nav class="hero-nav">
+      <a href="#journal">Journal</a>
+      <a href="#scout">Scout</a>
+      <a href="#goals">Goals</a>
+      <a href="#gear">Gear</a>
+      <a href="#home">Home</a>
+      <a href="#ai">AI Features</a>
+      <a href="#profile">Profile</a>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- START HERE -->
+    <div class="start-here">
+      <p class="start-here-eyebrow">Start here</p>
+      <h2>New to RallyEdge? Do these four things first.</h2>
+      <p class="start-here-subtitle">You'll be up and running in under 10 minutes — and the app will already feel personal.</p>
+      <div class="start-steps">
+        <div class="start-step">
+          <div class="start-step-num">1</div>
+          <span class="start-step-emoji">👤</span>
+          <h3>Set up your Profile</h3>
+          <p>Add your USTA level, play style, dominant hand, and Pep Talk tone. This is what makes everything feel personal.</p>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">2</div>
+          <span class="start-step-emoji">📔</span>
+          <h3>Log a session</h3>
+          <p>Log a recent match, lesson, or practice. Your stats update instantly and your history starts building.</p>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">3</div>
+          <span class="start-step-emoji">🎯</span>
+          <h3>Add a goal</h3>
+          <p>Add one thing you're actively working on. Be specific — the more detail you add, the better your AI Goal Tip will be.</p>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">4</div>
+          <span class="start-step-emoji">🔍</span>
+          <h3>Scout a few opponents</h3>
+          <p>Add two or three players you face regularly. Tag their strengths and weaknesses and add any notes you have on their game.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOURNAL -->
+    <section class="section" id="journal">
+      <div class="section-header">
+        <div class="section-icon">📔</div>
+        <div>
+          <div class="section-label">Journal</div>
+          <h2 class="section-title">Log every session</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Tap the + button to log a session</h3>
+            <p>From the Journal tab or the Home screen quick actions, tap + to start a new entry. Choose between Match, Lesson, or Practice.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Log a Match</h3>
+            <p>Record your opponent, score, surface, format (singles or doubles), result, and any notes on what worked and what was challenging. You can link opponents directly to your Scout profiles.</p>
+            <p>Scheduled upcoming matches can be logged in advance and converted to played matches after the fact.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Log a Lesson</h3>
+            <p>Record your coach's name, the skills you worked on, coaching tips (one per line), your rating, and any notes. Coaching tips you log here feed directly into your AI Pep Talk — so the more specific the better.</p>
+            <div class="tip"><strong>Tip:</strong> Log coaching tips exactly as your coach said them. The AI uses them verbatim when generating your pre-match pep talk.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Log a Practice</h3>
+            <p>Track practice sessions with location, surface, duration, other players on court, and which of your active goals you worked on. Linking goals to practice sessions helps you track real progress over time.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>View and edit past sessions</h3>
+            <p>Your Journal shows two sections — Upcoming and Past Sessions. Tap any entry to view the full detail. Tap Edit Entry to make changes. Use the filter pills (All / Match / Lesson / Practice) to narrow the list.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SCOUT -->
+    <section class="section" id="scout">
+      <div class="section-header">
+        <div class="section-icon">🔍</div>
+        <div>
+          <div class="section-label">Scout</div>
+          <h2 class="section-title">Know your opponents</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Add an opponent</h3>
+            <p>Tap the + button in the Scout tab to add a new opponent. Enter their name, club, USTA level, dominant hand, and select their strengths and weaknesses from the tag lists.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Add scouting notes</h3>
+            <p>Use the Notes field for anything that doesn't fit the tags — their tendencies at net, how they respond to pace, how they play under pressure. The more detail you add, the better your AI Game Plan will be.</p>
+            <div class="tip"><strong>Tip:</strong> Scouting notes feed directly into the AI Game Plan. Specific notes produce specific, actionable game plans.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Link opponents to matches</h3>
+            <p>When logging a match, search for your opponent by name to link them to your Scout profile. Linked matches build your head-to-head record automatically — visible on the opponent's detail screen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Review head-to-head history</h3>
+            <p>Tap any opponent to see their full profile, your win-loss record against them, and a breakdown of linked matches. Use the search bar to find opponents quickly across name, club, or notes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- GOALS -->
+    <section class="section" id="goals">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-label">Goals</div>
+          <h2 class="section-title">Improve with intention</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Create a goal</h3>
+            <p>Tap + to add a new goal. Give it a title, choose a category (Technique, Strategy, Mental, or Fitness), write a description of what you're working on, and set your starting progress.</p>
+            <div class="tip"><strong>Tip:</strong> The more specific your goal description, the better your AI Goal Tip will be. "Improve my serve" produces a generic tip. "My second serve breaks down under pressure — I double fault at the worst moments" produces a concrete, actionable drill.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Update your progress</h3>
+            <p>Tap Edit on any goal to update your progress percentage and status. Goals can be Active, Paused, or Achieved. The Goals tab shows collapsible sections for each status so you can stay focused on what matters now.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Link goals to practice sessions</h3>
+            <p>When logging a Lesson or Practice, select which goals you worked on in that session. This keeps your goal progress connected to your actual court time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- GEAR -->
+    <section class="section" id="gear">
+      <div class="section-header">
+        <div class="section-icon">🎒</div>
+        <div>
+          <div class="section-label">Gear</div>
+          <h2 class="section-title">Your equipment locker</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Add your gear</h3>
+            <p>Tap + to add a racket, shoes, or accessory. Each gear type has its own relevant fields — rackets include string tension, grip size, and role (Main or Backup). Shoes include size, color, and fit notes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Star your main racket</h3>
+            <p>Mark your primary racket as Main to keep it at the top of your gear list. You can have multiple rackets and toggle their role anytime.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Track purchase dates</h3>
+            <p>Add a purchase date to each item so you always know when your strings were last changed or when it's time to replace your shoes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- HOME -->
+    <section class="section" id="home">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <div>
+          <div class="section-label">Home</div>
+          <h2 class="section-title">Your season at a glance</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Stats strip</h3>
+            <p>The four cards at the top of Home show your live season stats — total sessions logged, win/loss record, total court time, and number of active goals. These update automatically every time you log a session.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Upcoming match banner</h3>
+            <p>If you have a scheduled match in your Journal, it appears as a banner on Home. Tap it to view details or generate your AI Game Plan for that opponent.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Latest coach lesson</h3>
+            <p>Your most recent lesson's coaching tips appear on Home so they're always front of mind before you head to the court.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Watch &amp; Learn</h3>
+            <p>A curated strip of short coaching videos from FuzzyYellowBalls — all under 4 minutes. Videos refresh monthly. Tap any video to watch it on YouTube.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- AI FEATURES -->
+    <section class="section" id="ai">
+      <div class="section-header">
+        <div class="section-icon ai">🤖</div>
+        <div>
+          <div class="section-label ai">AI Features</div>
+          <h2 class="section-title">Personalized coaching, powered by your game</h2>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number gold">1</div>
+          <div class="step-content">
+            <h3>AI Pep Talk</h3>
+            <p>Before a match, tap Get My Pep Talk on the Home screen. RallyEdge generates a personalized pre-match message built around your recent sessions, your active goals, your coach's latest tips, and your upcoming opponent — all in the tone you set in your Profile.</p>
+            <div class="tip gold-tip"><strong>How to get the best pep talk:</strong> Keep your Journal up to date, log your coach's tips after every lesson, and make sure your upcoming match is scheduled in the Journal before you generate.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number gold">2</div>
+          <div class="step-content">
+            <h3>AI Game Plan</h3>
+            <p>When you save a new opponent in Scout, RallyEdge automatically generates a 3-sentence game plan tailored to that opponent's strengths and weaknesses. Find it on the opponent's detail screen. You can refresh it anytime if you've updated their scouting notes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number gold">3</div>
+          <div class="step-content">
+            <h3>AI Goal Tips</h3>
+            <p>When you create a new goal, RallyEdge generates a 2-sentence coaching tip — a specific drill to try at your next practice, and a cue for applying it under match pressure. Find it on the goal's detail screen. You can refresh it anytime.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <h3 style="font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 16px; letter-spacing: 0.04em;">AI usage by plan</h3>
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Free</th>
+              <th>Pro</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pep Talks</td>
+              <td>2/week</td>
+              <td>7/week</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>AI Game Plans</td>
+              <td>20</td>
+              <td>100</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>AI Goal Tips</td>
+              <td>20</td>
+              <td>100</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>AI-Curated Videos</td>
+              <td><span class="dash">—</span></td>
+              <td><span class="dash">—</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12px; color: var(--text-light); margin-top: 12px;">Pep Talk limits reset every Sunday at midnight. Game Plan and Goal Tip limits are cumulative.</p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PROFILE -->
+    <section class="section" id="profile">
+      <div class="section-header">
+        <div class="section-icon">⚙️</div>
+        <div>
+          <div class="section-label">Profile</div>
+          <h2 class="section-title">Customize your experience</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Access your Profile</h3>
+            <p>Tap the avatar circle in the top right of the Home screen, or tap Menu from any screen. Your Profile panel slides up from the bottom.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Set your Pep Talk preferences</h3>
+            <p>Choose your preferred tone (Calm, Fierce, Funny, or Spiritual) and how often you want pep talks generated. You can also set a pump-up song from your iPhone music library — it plays while your pep talk appears.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Update your tennis profile</h3>
+            <p>Keep your USTA level, play style, dominant hand, and preferred surface up to date. This information feeds into every AI feature — more accurate profile data means more relevant pep talks and game plans.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Manage your account</h3>
+            <p>Tap Menu → Account to view your subscription plan, change your password, and manage your account settings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-wordmark">RallyEdge</div>
+    <div class="footer-tagline">Step on the court ready.</div>
+  </footer>
+
+  <script>
+    // Scroll-triggered section reveal
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
